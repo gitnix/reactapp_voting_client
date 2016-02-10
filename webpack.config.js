@@ -2,8 +2,8 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
+    // 'webpack-dev-server/client?http://localhost:8080',
+    // 'webpack/hot/only-dev-server',
     './src/index.jsx'
   ],
   module: {
@@ -25,7 +25,7 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' 
+        loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
       }
     ]
   },
@@ -36,12 +36,12 @@ module.exports = {
     path: __dirname + '/dist',
     publicPath: '/',
     filename: 'bundle.js'
-  },
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  }
+  // devServer: {
+  //   contentBase: './dist',
+  //   hot: true
+  // },
+  // plugins: [
+  //   new webpack.HotModuleReplacementPlugin()
+  // ]
 };

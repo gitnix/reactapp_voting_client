@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Router,{Route} from 'react-router';
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
 import io from 'socket.io-client';
 import reducer from './reducer';
@@ -12,20 +12,30 @@ import {VotingContainer} from './components/Voting';
 import {ResultsContainer} from './components/Results';
 // import styles from './styles/main.css';
 
-/* const socket = io('http://localhost:8090');
+// /* const socket = io('http://localhost:8090');
+/*
 below is a usage of es6 concatenation- it is equivalent to above
 */
-const socket = io(`${location.protocol}//${location.hostname}:8090`);
 
-socket.on('state', state =>
+const socket = io(`${location.protocol}//${location.hostname}:3000`);
+// const socket = new io.Socket();
+// socket.connect('http://localhost:8080');
+
+// var socket = io.connect('http://localhost:3000');
+socket.on('state', state => {
   // store.dispatch({type:'SET_STATE', state})
   //the above is old way without action creators
-  store.dispatch(setState(state))
+  // console.log('recieved state change request');
+  alert('State received');
+  store.dispatch(setState(state));
+  alert(store);
+  }
 );
 
-const createStoreWithMiddleware = applyMiddleware(
-  remoteActionMiddleware(socket))(createStore);
+const createStoreWithMiddleware = compose(applyMiddleware(
+  remoteActionMiddleware(socket)), typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f )(createStore);
 const store = createStoreWithMiddleware(reducer);
+
 
 const routes = <Route component={App}>
   <Route path="/results" component={ResultsContainer} />

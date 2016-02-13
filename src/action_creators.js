@@ -1,5 +1,5 @@
 export function setState(state) {
-  alert('OK, on client we gonna set the state');
+  //alert('OK, on client we gonna set the state');
   return {
     type: 'SET_STATE',
     state

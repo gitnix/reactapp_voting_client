@@ -26,11 +26,11 @@ function resetVote(state) {
 }
 
 export default function(state = Map(), action){
-  alert('we in switch on reducer');
-  alert(action.type);
+  //alert('we in switch on reducer');
+  //alert(action.type);
   switch (action.type) {
     case 'SET_STATE':
-      alert('Now we are in the reducer setting the state');
+      //alert('Now we are in the reducer setting the state');
       return resetVote(setState(state, action.state));
     case 'VOTE':
       return vote(state, action.entry);

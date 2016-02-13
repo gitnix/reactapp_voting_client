@@ -26,9 +26,9 @@ socket.on('state', state => {
   // store.dispatch({type:'SET_STATE', state})
   //the above is old way without action creators
   // console.log('recieved state change request');
-  alert('State received');
+  //alert('State received');
   store.dispatch(setState(state));
-  alert(store);
+  //alert(store);
   }
 );
 

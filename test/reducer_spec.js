@@ -102,7 +102,7 @@ describe('reducer', ()=> {
     }));
   });//end it
 
-  it('removes hasVoted on SET_STATE if pair changes', ()= > {
+  it('removes hasVoted on SET_STATE if pair changes', ()=> {
     const initialState = fromJS({
       vote: {
         pair: ['Trainspotting', '28 Days Later'],
@@ -119,7 +119,9 @@ describe('reducer', ()=> {
     };
     const nextState = reducer(initialState, action);
     expect(nextState).to.equal(fromJS({
-      vote: ['Sunshine', 'Slumdog Millionaire']
+      vote:{
+        pair:['Sunshine', 'Slumdog Millionaire']
+      }
     }));
   });//end it
 

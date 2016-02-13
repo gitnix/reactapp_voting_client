@@ -92,7 +92,7 @@ describe('Voting', () => {
     let firstButton = TestUtils.scryRenderedDOMComponentsWithTag(component, 'button')[0];
     expect(firstButton.textContent).to.equal('Trainspotting');
     const newPair = pair.set(0, 'Sunshine');
-    component.setProps({pair: pair});
+    component.setProps({pair: newPair});
     // React.render(component, document.getElementById('app'));
     firstButton = TestUtils.scryRenderedDOMComponentsWithTag(component, 'button')[0];
     expect(firstButton.textContent).to.equal('Sunshine');
